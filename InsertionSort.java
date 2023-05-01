@@ -7,14 +7,15 @@ class Insert{
     public static int insert(int arr[]){
         int result=-1;
         int n=arr.length;
-        for(int i=1;i<n;i++){
-            for (int j=i;j<n;j++){
-                if(j>0 &&arr[j]<arr[j-i]){
+      
+        for(int i=1;i<n;i++){int current=arr[i];
+            for (int j=i-1;j>=0;j--){
+                if(j>0 &&arr[j]>current){
                     int temp=arr[j];
-                    arr[j]=arr[j-i];
-                    arr[j-i]=temp;
+                    arr[j]=current;
+                    current=temp;
                     result=1;
-                }
+                }current=arr[j+1];
             }
         }System.out.println("after sorting of an array is: ");
         
